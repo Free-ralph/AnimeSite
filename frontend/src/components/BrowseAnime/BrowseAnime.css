@@ -1,0 +1,7 @@
+select {
+    position: relative;
+}
+select option::after {
+    content: "";
+    position: absolute;
+}
