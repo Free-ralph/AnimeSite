@@ -16,14 +16,14 @@ def fetchArticles():
             try:
                 for c, item in enumerate(response.json()):
                     article = item['article']
-                    newArticle = Article.objects.create(
+                    Article.objects.create(
                         title = article['title'].replace("\n", "").strip(), 
                         category = article['category'], 
                         summary = article['summary'],
                         thumb = article['thumbnail'],
                         url = article['url']
                     )
-                    fetchArticleDetail(article['api_url'], newArticle)
+                    # fetchArticleDetail(article['api_url'], newArticle)
                     if c == 40:
                         break
                 return True
