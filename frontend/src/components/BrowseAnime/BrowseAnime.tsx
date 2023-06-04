@@ -114,7 +114,7 @@ export default function BrowseAnime({
   }
   return (
     <article className="w-full ">
-      <div className=" mt-6 flex flex-col md:flex-row w-full justify-between items-center md:items-start gap-2">
+      <div className="flex flex-col md:flex-row w-full justify-between items-center md:items-start gap-2 my-6">
         <p className="font-bold text-3xl md:text-4xl lg:text-6xl capitalize w-full break-words md:w-[60%]">
           Top results For {query ? query : genre}
         </p>

@@ -68,7 +68,13 @@ function Navbar() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          <span className="hidden md:inline-block">About Me</span>
+          <a
+            href="http://okosa.pythonanywhere.com/"
+            target="blank"
+            className="hidden md:inline-block"
+          >
+            About Me
+          </a>
           <span className="md:hidden" onClick={() => setShowNav(!showNav)}>
             {showNav ? <CloseIcon /> : <MenuIcon />}
           </span>
@@ -105,12 +111,14 @@ function Navbar() {
                 >
                   <GitHubIcon /> GitHub
                 </div>
-                <div
+                <a
+                  href="http://okosa.pythonanywhere.com/"
+                  target="blank"
                   onClick={() => setShowNav(false)}
                   className="border border-secondary py-2 px-5"
                 >
                   About Me
-                </div>
+                </a>
               </div>
             </motion.div>
           </motion.div>
