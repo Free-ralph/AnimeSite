@@ -1,5 +1,4 @@
 import { useRouteError } from "react-router-dom";
-import Gojo from "../assets/Gojo.svg";
 
 export default function ErrorPage() {
   const error: any = useRouteError();
@@ -8,7 +7,7 @@ export default function ErrorPage() {
     <div className="h-screen w-full flex md:flex-col items-start justify-center relative">
       <div className="absolute right-0 top-0 md:top-[unset] md:h-full w-[30%] md:w-[60%] overflow-hidden">
         <img
-          src={Gojo}
+          src="static/assets/Gojo.svg"
           alt="gojo"
           className="w-full h-full object-center object-cover"
         />

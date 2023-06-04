@@ -7,9 +7,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-           fetchArticles()
-            # for i in range(1, 20):
-            #     fetchAnime(i)
-            # self.stdout.write(self.style.SUCCESS('News populated succesfully')) 
+        #    fetchArticles()
+            for i in range(1, 20):
+                fetchAnime(i)
+            self.stdout.write(self.style.SUCCESS('News populated succesfully')) 
         except Exception as e:
             raise CommandError(e)
