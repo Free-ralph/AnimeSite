@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = False
 
-# ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['https://bankai-news.onrender.com/']
 
 
 LOGGING = {
