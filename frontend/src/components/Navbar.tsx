@@ -112,12 +112,13 @@ function Navbar() {
                 )}
               </div>
               <div className="flex flex-col gap-2">
-                <div
+                <a
+                  href="https://github.com/Free-ralph/AnimeSite/"
                   onClick={() => setShowNav(false)}
                   className="border border-secondary py-2 px-5"
                 >
                   <GitHubIcon /> GitHub
-                </div>
+                </a>
                 <a
                   href="http://okosa.pythonanywhere.com/"
                   target="blank"
