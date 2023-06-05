@@ -11,6 +11,7 @@ import { AnimeItemType } from "../types/api";
 import { RotateLoader } from "react-spinners";
 import BrowseAnime from "./BrowseAnime/BrowseAnime";
 import { useContainerRef } from "../pages/Layout";
+import { Link } from "react-router-dom";
 
 function Left() {
   const { Toast } = useStateContext();
@@ -106,11 +107,23 @@ function HorizontalScrollBar({ data }: { data: AnimeItemType[] | undefined }) {
         ref={scrollContainerRef}
       >
         {!!data ? (
-          data.map((animeItem, i) => (
-            <div className="mr-5 inline-block pb-2 md:pb-0" key={i}>
-              <ItemCard animeItem={animeItem} />
+          <>
+            {data.map((animeItem, i) => (
+              <div className="md:mr-3 inline-block pb-2 md:pb-0" key={i}>
+                <ItemCard animeItem={animeItem} />
+              </div>
+            ))}
+            <div className="inline-flex md:h-[20rem] ">
+              <div className="inline relative">
+                <Link
+                  className="rounded-md bg-primary text-secondary py-2 px-3 hover:bg-gray-700 transition-all md:absolute top-[50%]"
+                  to="/ranked-anime"
+                >
+                  See More
+                </Link>
+              </div>
             </div>
-          ))
+          </>
         ) : (
           <div className="w-full flex justify-center">
             Could'nt fetch data, must've exceeded the daily quota of the api

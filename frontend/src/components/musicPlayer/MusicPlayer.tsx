@@ -161,13 +161,13 @@ export default function MusicPlayer() {
     <>
       {musicFiles && (
         <div
-          className={`fixed bottom-2  h-[3rem] right-0 md:right-2 z-50 flex w-full md:w-[20rem] justify-end ${
+          className={`fixed bottom-2  h-[3rem] right-0 md:right-2 z-50 flex w-full md:w-[20rem] justify-end  ${
             !showMusicPlayer && "pointer-events-none"
           }`}
         >
           <div
             onClick={toggleMusicPlayer}
-            className="p-3 w-[3rem] h-full flex items-center justify-center bg-primary border-2 border-secondary text-secondary cursor-pointer pointer-events-auto"
+            className="rounded-md p-3 w-[3rem] h-full flex items-center justify-center bg-primary border-2 border-secondary text-secondary cursor-pointer pointer-events-auto"
           >
             {showMusicPlayer ? <CloseIcon /> : <HeadsetIcon />}
           </div>
@@ -178,7 +178,7 @@ export default function MusicPlayer() {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                className="bg-primary border border-secondary h-full border-l-0"
+                className="bg-primary border border-secondary h-full border-l-0 rounded-md"
               >
                 <motion.div
                   variants={MusicControlsVariants}

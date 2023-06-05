@@ -15,6 +15,7 @@ def getGenreList(request):
 
 @api_view(['GET'])
 def getAnimeList(request):
+    page = request.GET.get("page")
     paginator = PageNumberPagination()
     paginator.page_size = 10
     animeList = Anime.objects.all().order_by('rank')

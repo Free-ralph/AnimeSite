@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ItemCard3 } from "../components/ItemCard";
-import { getArticleList } from "../services/api";
+import { ItemCard2 } from "../components/ItemCard";
+import { getAnimeList } from "../services/api";
 import { useQuery } from "react-query";
 import { RotateLoader } from "react-spinners";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import { useStateContext } from "../context/StateContextProvider";
 import Paginator from "../components/Paginator";
 import { useContainerRef } from "./Layout";
 
-export default function AnimeNews() {
+export default function RankedAnime() {
   const { Toast } = useStateContext();
   const containerDIVRef = useContainerRef();
   const [curPage, setCurPage] = useState(1);
@@ -20,11 +20,11 @@ export default function AnimeNews() {
   const numberOfPagesDisplayed = 2;
 
   const {
-    data: articleList,
+    data: animeList,
     isLoading,
     isFetching,
     refetch: refetchArticle,
-  } = useQuery("articles", () => getArticleList(curPage), {
+  } = useQuery("animeList", () => getAnimeList(curPage), {
     onError: () => {
       Toast("something's wrong, on it", "failure");
     },
@@ -57,7 +57,7 @@ export default function AnimeNews() {
 
     if (curPage < totalPages) {
       setCurPage(curPage + 1);
-      containerDIVRef.current?.scrollTo({ top: 500, behavior: "smooth" });
+      containerDIVRef.current?.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -65,12 +65,12 @@ export default function AnimeNews() {
     if (curPage > 0) {
       setCurPage(curPage - 1);
     }
-    containerDIVRef.current?.scrollTo({ top: 500, behavior: "smooth" });
+    containerDIVRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handlePageSkip = (page: number) => {
     setCurPage(page);
-    containerDIVRef.current?.scrollTo({ top: 500, behavior: "smooth" });
+    containerDIVRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -93,13 +93,13 @@ export default function AnimeNews() {
     >
       <section className="p-3 pl-5 lg:pl-20 text-gray-700 w-full lg:w-[95%] mt-[1rem]">
         <article>
-          <p className="font-bold text-5xl md:text-6xl capitalize">
-            Browse All the latest News
+          <p className="font-bold text-5xl md:text-6xl capitalize mb-5">
+            All Ranked Anime
           </p>
           <div className="w-full mt-3 gap-4 flex flex-col">
-            {articleList?.results.map((article, i) => (
+            {animeList?.results.map((anime, i) => (
               // biuld another card
-              <ItemCard3 key={i} article={article} />
+              <ItemCard2 key={i} animeItem={anime} />
             ))}
           </div>
           <Paginator

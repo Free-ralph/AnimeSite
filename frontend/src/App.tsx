@@ -2,6 +2,7 @@ import "./App.css";
 import AnimeNews from "./pages/News";
 import Anime from "./pages/Anime";
 import Layout from "./pages/Layout";
+import RankedAnime from "./pages/RankedAnime";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { StateContextProvider } from "./context/StateContextProvider";
 import ErrorPage from "./pages/ErrorPage";
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "news",
         element: <AnimeNews />,
+      },
+      {
+        path: "ranked-anime",
+        element: <RankedAnime />,
       },
     ],
   },

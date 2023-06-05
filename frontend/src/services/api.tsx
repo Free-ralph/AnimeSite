@@ -61,6 +61,11 @@ async function getMusicFiles() {
   return response.data;
 }
 
+async function getAnimeList(page = 1) {
+  const response = await axiosCustom.get<{results : AnimeItemType[], count : number}>(`/anime-list?page=${page}`);
+  return response.data;
+}
+
 
 export {
   getArticleList,
@@ -69,5 +74,6 @@ export {
   getAnimeListBySearch,
   getNewAnimeReleases, 
   getBestRankingAnime, 
-  getMusicFiles
+  getMusicFiles,
+  getAnimeList
 };

@@ -124,10 +124,10 @@ export default function BrowseAnime({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="search anime"
-            className="w-[60%] h-[3rem] border border-primary focus:border-2 focus:outline-none bg-transparent px-2"
+            className="rounded-md w-[60%] h-[3rem] border border-primary focus:border-2 focus:outline-none bg-transparent px-2"
           />
           <select
-            className="bg-transparent border border-primary w-[40%] h-[3rem] focus:border-2 ml-2 px-2"
+            className="rounded-md bg-transparent border border-primary w-[40%] h-[3rem] focus:border-2 ml-2 px-2"
             onChange={handleGenreChange}
           >
             <option

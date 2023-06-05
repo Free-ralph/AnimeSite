@@ -27,21 +27,25 @@ function Navbar() {
   const location = useLocation();
   const [showNav, setShowNav] = useState(false);
   const activeStyle =
-    "border-b-8 py-1 px-4 bg-primary  border-gray-800 text-secondary";
+    "border-b-4 py-1 px-4 bg-primary border-gray-800 text-secondary rounded-md";
   const inActiveStyle =
-    "py-1 px-4 bg-primary text-secondary border-gray-800 opacity-95 hover:opacity-100";
+    "py-1 px-4 bg-primary text-secondary border-gray-800 opacity-90 hover:opacity-100  rounded-md";
   const isNewsPage = location.pathname === "/news";
   return (
     <div className="h-[8vh] w-screen flex items-center justify-center">
-      <div className=" gap-[0.1rem] mt-3 hidden md:flex">
+      <div className=" mt-3 hidden md:flex">
         <NavLink
-          className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+          className={({ isActive }) =>
+            isActive ? activeStyle + " rounded-e-[0]" : inActiveStyle + " rounded-e-[0]"
+          }
           to={"/"}
         >
           Discover
         </NavLink>
         <NavLink
-          className={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}
+          className={({ isActive }) =>
+            isActive ? activeStyle + " rounded-s-[0]" : inActiveStyle + " rounded-s-[0]"
+          }
           to={"/news"}
         >
           News
@@ -53,7 +57,7 @@ function Navbar() {
         className="pl-5 lg:pl-20 flex justify-start items-center fixed top-3 left-0 z-50"
       >
         <motion.div
-          className="bg-primary  px-3 py-2 text-secondary font-bold border border-secondary"
+          className="bg-primary  px-3 py-2 text-secondary font-bold border border-secondary rounded-md"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -63,7 +67,7 @@ function Navbar() {
       </Link>
       <div className="pr-5 lg:pr-20 flex justify-end items-center fixed top-3 right-0 z-50">
         <motion.div
-          className="bg-primary lg:bg-secondary px-3 py-2 text-secondary lg:text-primary font-bold border border-secondary"
+          className="bg-primary lg:bg-secondary px-3 py-2 text-secondary lg:text-primary font-bold border border-secondary rounded-md"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -75,7 +79,10 @@ function Navbar() {
           >
             About Me
           </a>
-          <span className="md:hidden" onClick={() => setShowNav(!showNav)}>
+          <span
+            className="md:hidden rounded-md"
+            onClick={() => setShowNav(!showNav)}
+          >
             {showNav ? <CloseIcon /> : <MenuIcon />}
           </span>
         </motion.div>
