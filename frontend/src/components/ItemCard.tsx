@@ -11,7 +11,7 @@ type ItemCard3props = {
 export function ItemCard({ animeItem }: ItemCardProps) {
   return (
     <div
-      className={`h-[33rem] md:h-[20rem] w-[95%] md:w-[42rem] flex flex-col md:flex-row justify-between md:mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
+      className={`h-[30rem] md:h-[20rem] w-[15rem] md:w-[42rem] flex flex-col md:flex-row justify-between md:mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
     >
       <div className="relative w-full md:w-[50%] h-[60%] md:h-full">
         <div className="overflow-hidden h-full w-full md:rounded-se-[3rem] md:rounded-es-[3rem] border-b-2 md:border-l-2 border-gray-500">
@@ -25,7 +25,7 @@ export function ItemCard({ animeItem }: ItemCardProps) {
       <div className="w-full md:w-[48%] h-full flex flex-col justify-between">
         <div className="h-[30%] flex items-end p-2">
           <div className="font-bold  text-center flex items-center">
-            <span className="text-4xl md:text-7xl">{animeItem.rank}-</span>
+            <span className="text-3xl md:text-7xl">{animeItem.rank}-</span>
             <span className="text-lg md:text-2xl text-start leading-6">
               {animeItem.title}
             </span>
@@ -57,7 +57,7 @@ export function ItemCard({ animeItem }: ItemCardProps) {
 export function ItemCard2({ animeItem }: ItemCardProps) {
   return (
     <div
-      className={`h-[33rem] md:h-[13rem] w-full flex flex-col md:flex-row justify-between mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
+      className={`h-[30rem] md:h-[13rem] w-full flex flex-col md:flex-row justify-between mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
     >
       <div className="relative w-full md:w-[30%] h-[60%] md:h-full">
         <div className="overflow-hidden h-full w-full border-b-1 md:border-1 border-gray-500 md:rounded-md">
@@ -71,7 +71,7 @@ export function ItemCard2({ animeItem }: ItemCardProps) {
       <div className="w-full md:w-[68%] h-full flex flex-col justify-between">
         <div className="h-[30%] flex items-end p-2 md:p-0">
           <div className="font-bold  text-center flex items-center">
-            <span className="text-4xl md:text-7xl">{animeItem.rank}-</span>
+            <span className="text-3xl md:text-7xl">{animeItem.rank}-</span>
             <span className="text-lg md:text-2xl text-start leading-6">
               {animeItem.title}
             </span>

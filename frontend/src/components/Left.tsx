@@ -44,7 +44,7 @@ function Left() {
     >
       <section className="p-3 pl-5 lg:pl-20 text-gray-700 w-full lg:w-[95%] mt-[1rem]">
         <article>
-          <p className="font-bold text-5xl md:text-6xl capitalize">
+          <p className="font-bold text-4xl md:text-6xl capitalize">
             Ranking the Finest Anime
           </p>
           <div className="w-full relative md:mt-7">
@@ -103,13 +103,13 @@ function HorizontalScrollBar({ data }: { data: AnimeItemType[] | undefined }) {
         <ArrowLeftIcon />
       </button>
       <div
-        className="scroll-content overflow-x-auto whitespace-nowrap mt-6 md:mt-0 "
+        className="scroll-content overflow-x-auto flex flex-row gap-5 mt-6 md:mt-0 "
         ref={scrollContainerRef}
       >
         {!!data ? (
           <>
             {data.map((animeItem, i) => (
-              <div className="md:mr-3 inline-block pb-2 md:pb-0" key={i}>
+              <div className="inline-block pb-2 md:pb-0" key={i}>
                 <ItemCard animeItem={animeItem} />
               </div>
             ))}
