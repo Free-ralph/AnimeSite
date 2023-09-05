@@ -11,7 +11,7 @@ type ItemCard3props = {
 export function ItemCard({ animeItem }: ItemCardProps) {
   return (
     <div
-      className={`h-[30rem] md:h-[20rem] w-[15rem] md:w-[42rem] flex flex-col md:flex-row justify-between md:mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
+      className={`h-[30rem] md:h-[20rem] w-[19rem] md:w-[42rem] flex flex-col md:flex-row justify-between md:mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
     >
       <div className="relative w-full md:w-[50%] h-[60%] md:h-full">
         <div className="overflow-hidden h-full w-full md:rounded-se-[3rem] md:rounded-es-[3rem] border-b-2 md:border-l-2 border-gray-500">
