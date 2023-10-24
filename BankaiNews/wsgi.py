@@ -18,3 +18,5 @@ else:
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'BankaiNews.settings.prod')
 
 application = get_wsgi_application()
+
+app = application
