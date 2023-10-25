@@ -1,11 +1,13 @@
-import React, { ChangeEvent, useState, useEffect } from "react";
+import React, { ChangeEvent, useState, useEffect, useRef } from "react";
 import { useQuery } from "react-query";
 import { getAnimeListByFilter, getAnimeGenreList } from "../../services/api";
-import { RotateLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 import { useStateContext } from "../../context/StateContextProvider";
 import Paginator from "../Paginator";
 import { ItemCard2 } from "../ItemCard";
 import "./BrowseAnime.css";
+import SearchIcon from "@mui/icons-material/Search";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 export default function BrowseAnime({
   containerDIVRef,
@@ -21,8 +23,9 @@ export default function BrowseAnime({
   const [totalPages, setTotalPages] = useState(0);
   const [pagesBefore, setPagesBefore] = useState<number[]>();
   const [pagesAfter, setPagesAfter] = useState<number[]>();
+  const [resetFilters, setResetFilters] = useState<number>(0);
   const numberOfPagesDisplayed = 2;
-
+  const selectRef = useRef<HTMLSelectElement>(null);
   const {
     data: animeList,
     isLoading,
@@ -97,9 +100,25 @@ export default function BrowseAnime({
     containerDIVRef.current?.scrollTo({ top: 500, behavior: "smooth" });
   };
 
+  const handleSearch = () => {
+    refetchAnimeList();
+  };
+
+  const handleReset = () => {
+    setGenre("all");
+    setQuery("");
+    if (selectRef.current) {
+      selectRef.current.selectedIndex = 0;
+    }
+    setResetFilters(Math.random());
+  };
+
   useEffect(() => {
     refetchAnimeList();
-  }, [genre, curPage, query]);
+  }, [resetFilters]);
+  useEffect(() => {
+    refetchAnimeList();
+  }, [genre, curPage]);
 
   useEffect(() => {
     setCurPage(1);
@@ -108,7 +127,7 @@ export default function BrowseAnime({
   if (isLoading || gettingGenres) {
     return (
       <div className="w-full h-full flex items-center justify-center mt-10">
-        <RotateLoader color="#117f95" />
+        <HashLoader color="#117f95" />
       </div>
     );
   }
@@ -119,16 +138,25 @@ export default function BrowseAnime({
           Top results For {query ? query : genre}
         </p>
         <div className="flex gap-2 w-full md:w-[40%]">
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="search anime"
-            className="rounded-md w-[60%] h-[3rem] border border-primary focus:border-2 focus:outline-none bg-transparent px-2"
-          />
+          <div className="flex">
+            <input
+              type="search w-[60%]"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="search anime"
+              className=" rounded-s-md border-e-0 w-full h-[3rem] border border-primary focus:border-2 focus:outline-none bg-transparent px-2"
+            />
+            <div
+              className="h-[3rem] border-primary rounded-e-md border-1 border-s-0 px-2 py-2 cursor-pointer hover:bg-slate-500 hover:bg-opacity-5"
+              onClick={handleSearch}
+            >
+              <SearchIcon />
+            </div>
+          </div>
           <select
             className="rounded-md bg-transparent border border-primary w-[40%] h-[3rem] focus:border-2 ml-2 px-2"
             onChange={handleGenreChange}
+            ref={selectRef}
           >
             <option
               value="all"
@@ -146,11 +174,17 @@ export default function BrowseAnime({
               </option>
             ))}
           </select>
+          <div
+            className="h-[3rem] border-primary rounded-md border-1 px-2 py-2 cursor-pointer hover:bg-slate-500 hover:bg-opacity-5"
+            onClick={handleReset}
+          >
+            <RestartAltIcon />
+          </div>
         </div>
       </div>
       {isFetching ? (
         <div className="w-full h-full flex items-center justify-center mt-10">
-          <RotateLoader color="#117f95" />
+          <HashLoader color="#117f95" />
         </div>
       ) : (
         <>

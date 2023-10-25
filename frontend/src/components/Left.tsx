@@ -8,7 +8,7 @@ import "react-horizontal-scrolling-menu/dist/styles.css";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { AnimeItemType } from "../types/api";
-import { RotateLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 import BrowseAnime from "./BrowseAnime/BrowseAnime";
 import { useContainerRef } from "../pages/Layout";
 import { Link } from "react-router-dom";
@@ -31,7 +31,7 @@ function Left() {
   if (isLoading) {
     return (
       <div className="h-full w-full md:w-[70%] flex items-center justify-center">
-        <RotateLoader color="#117f95" />
+        <HashLoader color="#117f95" />
       </div>
     );
   }
@@ -103,7 +103,7 @@ function HorizontalScrollBar({ data }: { data: AnimeItemType[] | undefined }) {
         <ArrowLeftIcon />
       </button>
       <div
-        className="scroll-content overflow-x-auto flex flex-row gap-5 mt-6 md:mt-0 "
+        className="scroll-content overflow-x-auto flex flex-row gap-5 mt-6 pb-5 md:mt-0 "
         ref={scrollContainerRef}
       >
         {!!data ? (

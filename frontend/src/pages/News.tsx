@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ItemCard3 } from "../components/ItemCard";
 import { getArticleList } from "../services/api";
 import { useQuery } from "react-query";
-import { RotateLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 import { useEffect, useState } from "react";
 import { useStateContext } from "../context/StateContextProvider";
 import Paginator from "../components/Paginator";
@@ -80,7 +80,7 @@ export default function AnimeNews() {
   if (isLoading || isFetching) {
     return (
       <div className="h-full w-full md:w-[70%] flex items-center justify-center">
-        <RotateLoader color="#117f95" />
+        <HashLoader color="#117f95" />
       </div>
     );
   }

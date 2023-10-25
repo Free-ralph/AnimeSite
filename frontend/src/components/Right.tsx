@@ -7,7 +7,7 @@ function Right() {
 
         <div className="w-full opacity-90 absolute bottom-0 overflow-hidden">
           <img
-            src="static/assets/Hisoka3.svg"
+            src="https://bankai-news.s3.amazonaws.com/assets/Hisoka3.svg"
             className="object-contain object-center h-fit w-full"
           />
         </div>
