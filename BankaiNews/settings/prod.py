@@ -4,7 +4,7 @@ DEBUG = False
 
 # ALLOWED_HOSTS = ['https://bankai-news.onrender.com/', 'bankai-news.onrender.com']
 # ALLOWED_HOSTS = ['.vercel.app', "127.0.0.1"]
-ALLOWED_HOSTS = ['.vercel.app', "'bankai-news.onrender.com"]
+ALLOWED_HOSTS = ['.vercel.app', "bankai-news.onrender.com"]
 
 
 LOGGING = {
