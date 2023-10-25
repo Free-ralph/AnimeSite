@@ -145,8 +145,11 @@ AWS_DEFAULT_ACL = None
 
 STORAGES = {
     "default": {"BACKEND": "storages.backends.s3boto3.S3Boto3Storage"}, 
-    "staticfiles": {"BACKEND": 'whitenoise.storage.CompressedManifestStaticFilesStorage'}
+    "staticfiles": {"BACKEND": 'storages.backends.s3boto3.S3Boto3Storage'}
             }
+
+# DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+# STATICFILES_STORAGE = "storages.backends.s3.S3Storage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
