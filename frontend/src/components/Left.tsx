@@ -113,8 +113,8 @@ function HorizontalScrollBar({ data }: { data: AnimeItemType[] | undefined }) {
                 <ItemCard animeItem={animeItem} />
               </div>
             ))}
-            <div className="inline-flex md:h-[20rem] ">
-              <div className="inline relative">
+            <div className="inline-block md:h-[20rem]">
+              <div className="flex items-center relative h-full w-[7rem]">
                 <Link
                   className="rounded-md bg-primary text-secondary py-2 px-3 hover:bg-gray-700 transition-all md:absolute top-[50%]"
                   to="/ranked-anime"

@@ -59,6 +59,7 @@ export default function BrowseAnime({
           ).filter((page) => page <= total_pages);
           return pages_after;
         });
+        
       },
     }
   );

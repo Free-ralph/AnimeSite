@@ -11,12 +11,12 @@ type ItemCard3props = {
 export function ItemCard({ animeItem }: ItemCardProps) {
   return (
     <div
-      className={`h-[30rem] md:h-[20rem] w-[19rem] md:w-[42rem] flex flex-col md:flex-row justify-between md:mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
+      className={`h-[27rem] md:h-[20rem] w-[15rem] md:w-[42rem] flex flex-col md:flex-row justify-between md:mr-12 whitespace-normal overflow-hidden border-2 border-primary md:border-0 rounded-md`}
     >
-      <div className="relative w-full md:w-[50%] h-[60%] md:h-full">
+      <div className="relative w-full md:w-[50%] h-[50%] md:h-full">
         <div className="overflow-hidden h-full w-full md:rounded-se-[3rem] md:rounded-es-[3rem] border-b-2 md:border-l-2 border-gray-500">
           <img
-            className="w-full object-cover object-center"
+            className="w-full h-full object-cover object-center"
             src={animeItem.thumb}
             alt={`${animeItem.title}-thumbnail`}
           />
@@ -26,7 +26,7 @@ export function ItemCard({ animeItem }: ItemCardProps) {
         <div className="h-[30%] flex items-end p-2">
           <div className="font-bold  text-center flex items-center">
             <span className="text-3xl md:text-7xl">{animeItem.rank}-</span>
-            <span className="text-lg md:text-2xl text-start leading-6">
+            <span className="md:text-2xl text-start leading-6">
               {animeItem.title}
             </span>
           </div>
@@ -38,8 +38,8 @@ export function ItemCard({ animeItem }: ItemCardProps) {
             {animeItem.synopsis.length >= 160 && "..."}
           </p>
           <p className=" w-full p-3 overflow-hidden h-[80%] rounded-se-[5rem] pr-5 block md:hidden">
-            {animeItem.synopsis.slice(0, 100)}{" "}
-            {animeItem.synopsis.length >= 100 && "..."}
+            {animeItem.synopsis.slice(0, 80)}{" "}
+            {animeItem.synopsis.length >= 80 && "..."}
           </p>
           <a
             href={animeItem.link}
